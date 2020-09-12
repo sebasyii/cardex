@@ -1,0 +1,39 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.main-image {
+    width: 100%;
+
+}
+
+nav .brand-logo {
+    padding: 0 15px;
+}
+
+.flash-message {
+    font-size: 3.5em;
+}
+
+.service-section > .container > h1 {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    font-family: Montserrat, sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    color: rgb(56, 55, 55);
+    font-size: 33px;
+    text-transform: uppercase;
+}
+
+.service-section > .container > p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 18px;
+    line-height: 26px;
+    color: rgb(83, 83, 83);
+    font-weight: 400;
+}

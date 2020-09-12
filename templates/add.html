@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+
+{% block title %}Add Car{% endblock %}
+{% block body %}
+    <div class="container">
+        <h1 class="center-align">Add Car to Database</h1>
+        <div class="row">
+            <form action="/add" class="col s12" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="input-field col s6">
+                        <input placeholder="Example: BMW" id="car_make" type="text" class="validate" name="car_make">
+                        <label for="car_make">Car Make</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input placeholder="Example: 3-series" id="car_model" type="text" class="validate"
+                               name="car_model">
+                        <label for="car_model">Car Model</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12 m5">
+                        <input placeholder="Example: Saloon 2019" id="car_submodel" type="text" class="validate"
+                               name="car_submodel">
+                        <label for="car_submodel">Car Sub-model</label>
+                    </div>
+                    <div class="input-field col s12 m5">
+                        <input placeholder="Example: 320d SE 4d" id="car_version" type="text" class="validate"
+                               name="car_version">
+                        <label for="car_version">Car Version</label>
+                    </div>
+                    <div class="input-field col s12 m2">
+                        <input placeholder="Example: 1000000" id="car_price" type="text" class="validate"
+                               name="car_price">
+                        <label for="car_price">Price</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="file-field input-field ">
+                        <div class="btn red lighten-2">
+                            <span>Image File</span>
+                            <input type="file" name="file" required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input type="text" class="file-path validate" required>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn waves-effect waves-light red lighten-2 right" type="submit" name="action">Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
