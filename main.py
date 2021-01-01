@@ -4,17 +4,22 @@ from pathlib import Path
 
 import requests
 from flask import Flask, render_template, redirect, request, flash
+from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.utils import secure_filename
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///car.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 app.config["SECRET_KEY"] = "A RANDOM KEY"
 PATH = os.path.join(app.root_path, 'static/images')
 app.config['UPLOAD_FOLDER'] = PATH
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 db = SQLAlchemy(app)
+Migrate(app, db)
 
+
+# Models
 
 class Car(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -101,14 +106,7 @@ def car_page(make, model, sub_model):
         vehicle_class = sorted(vehicle_class)
         class_values_dict = dict(zip(vehicle_class, lst_of_values))
         print(class_values_dict)
-        # vehicle_class = data["vehicle_class"]
-        # bidding_no = data["bidding_no"]
-        # premium = data["premium"]
-        # bids_received = data["bids_received"]
-        # quota = data["quota"]
-        # month = data["month"]
-        # id = data["_id"]
-        # bids_success = data["bids_success"]
+
     if car:
         return render_template('car.html', car=car, title="COE Premiums over the Years", labels=labels,
                                values=class_values_dict)
